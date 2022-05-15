@@ -15,3 +15,6 @@ class Funciones():
     def contieneZoo(self, resultado):
         return "zoo" in str(resultado)
 
+    def ln(self, valor):
+        return math.log(valor)
+
