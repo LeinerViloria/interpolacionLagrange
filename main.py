@@ -5,9 +5,9 @@ from Lagrange.InterpolacionCubica import InterpolacionCubica
 from Lagrange.InterpolacionLineal import InterpolacionLineal
 from MathFunctions.Funciones import Funciones
 
-x = [0,1,2,3]
-#y = [None, None, None, None]
-y = [1,3,0,-8]
+x = [1,4,6,8]
+y = []
+#y = [1,3,0,-8]
 limite = range(-2,5)
 
 lineal = None
@@ -16,25 +16,24 @@ cubica = None
 
 JSON = tabla()
 function = Funciones()
-ecuacion = ""
+ecuacion = "ln(x)"
 
-def calcularY(ecuacion, rango):
+def calcularY(ecuacion, rango, valoresX):
     aux = []
     if "ln" in ecuacion:
         for i in rango:
-            aux.append(function.ln(x[i]))
-
+            aux.append(function.ln(valoresX[i]))
     else:
         ecuacion = "" if (ecuacion.strip() == "") else function.parsear(ecuacion)
         if (ecuacion != ""):
             for i in rango:
-                aux.append(function.funcionIngresada(ecuacion, x[i]))
+                aux.append(function.funcionIngresada(ecuacion, valoresX[i]))
         else:
             aux.append(None)
     return aux
 
 if(len(y)==0):
-    y = calcularY(ecuacion, range(4))
+    y = calcularY(ecuacion, range(0,4), x)
 
 def getValores(interpolacion):
     aux=[]
@@ -77,7 +76,7 @@ if (str(ecuacion).strip() != "" or y[0]!=None):
     JSON.definirColumna("Lineal", lineal[1])
     JSON.definirColumna("Cuadratica", cuadratica[1])
     JSON.definirColumna("Cubica", cubica[1])
-    JSON.definirColumna("Original", calcularY(ecuacion, limite))
+    JSON.definirColumna("Original", calcularY(ecuacion, range(len(list(limite))), list(limite)))
 
     print(JSON.getTabla())
 else:

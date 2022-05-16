@@ -16,5 +16,5 @@ class Funciones():
         return "zoo" in str(resultado)
 
     def ln(self, valor):
-        return math.log(valor)
+        return math.log(valor) if valor>0 else None
 
