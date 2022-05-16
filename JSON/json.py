@@ -2,20 +2,7 @@ import json
 
 class json():
     def __init__(self):
-        self._tabla = [
-            {
-                "nombre":"X",
-                "valores":[]
-            },
-            {
-                "nombre": "Interpolacion Lineal",
-                "valores": []
-            },
-            {
-                "nombre": "X",
-                "valores": []
-            }
-        ]
+        self._tabla = []
 
     def definirColumna(self, nombre, valores):
         aux = {
