@@ -8,7 +8,7 @@ from MathFunctions.Funciones import Funciones
 x = [1,4,6,8]
 y = []
 #y = [1,3,0,-8]
-limite = range(1,6)#[1,5]
+limite = range(-5,6)#[-5,5]
 
 lineal = [None, None]
 cuadratica = [None, None]
@@ -66,7 +66,7 @@ async def inter3():
 if (str(ecuacion).strip() != "" or y[0]!=None):
     lineal = asyncio.run(inter1())
     cuadratica = asyncio.run(inter2())
-    cubica = asyncio.run(inter3())
+    #cubica = asyncio.run(inter3())
 
     print("Interpolacion lineal: {}".format(lineal[0]))
     print("Interpolacion cuadratica: {}".format(cuadratica[0]))

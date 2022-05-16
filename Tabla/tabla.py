@@ -28,5 +28,7 @@ class tabla():
         original = self._tabla[4]['values']
         n = len(original)
         for i in range(n):
-            valores.append(abs((original[i]-interpolacion[i])/(original[i]))*100)
+            division = (original[i]-interpolacion[i])/(original[i]) if (original[i]!=None and interpolacion[i]!=None) else None
+            resultAbs = abs(division)*100 if (division != None) else None
+            valores.append(resultAbs)
         self.definirColumna(nombre, valores)
