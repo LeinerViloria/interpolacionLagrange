@@ -42,44 +42,26 @@ def getValores(interpolacion):
         aux.append(interpolacion.getValue(i))
     return aux
 
-
-#print(ecuacion)
-#print("\n")
-# (x0,y0,x1,y1)
 async def inter1():
     i1 = InterpolacionLineal(x[0], y[0], x[1], y[1])
     px = i1.calcularPx()
     result = "Math error" if (function.contieneZoo(px)) else px
-    valores = None
-    if(result!="Math error"):
-        valores = getValores(i1)
+    valores = None if result == "Math error" else getValores(i3)
 
     return [result, valores]
-
-
-# for value in x:
-#    print("X={}, Y={}".format(value,i1.getValue(value)))
 
 async def inter2():
     i2 = InterpolacionCuadratica(x[0], y[0], x[1], y[1], x[2], y[2])
     px = i2.calcularPx()
     result = "Math error" if (function.contieneZoo(px)) else px
-    valores = None
-    if (result != "Math error"):
-        valores = getValores(i2)
+    valores = None if result == "Math error" else getValores(i2)
     return [result, valores]
-
-
-# for value in x:
-#    print("X={}, Y={}".format(value,i2.getValue(value)))
 
 async def inter3():
     i3 = InterpolacionCubica(x[0], y[0], x[1], y[1], x[2], y[2], x[3], y[3])
     px = i3.calcularPx()
     result = "Math error" if (function.contieneZoo(px)) else px
-    valores = None
-    if (result != "Math error"):
-        valores = getValores(i3)
+    valores = None if result == "Math error" else getValores(i3)
     return [result, valores]
 
 if (str(ecuacion).strip() != "" or y[0]!=None):
