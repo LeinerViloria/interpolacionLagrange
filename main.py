@@ -46,7 +46,7 @@ async def inter1():
     i1 = InterpolacionLineal(x[0], y[0], x[1], y[1])
     px = i1.calcularPx()
     result = "Math error" if (function.contieneZoo(px)) else px
-    valores = None if result == "Math error" else getValores(i3)
+    valores = None if result == "Math error" else getValores(i1)
 
     return [result, valores]
 
