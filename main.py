@@ -8,11 +8,11 @@ from MathFunctions.Funciones import Funciones
 x = [1,4,6,8]
 y = []
 #y = [1,3,0,-8]
-limite = range(-2,5)
+limite = range(1,6)#[1,5]
 
-lineal = None
-cuadratica = None
-cubica = None
+lineal = [None, None]
+cuadratica = [None, None]
+cubica = [None, None]
 
 JSON = tabla()
 function = Funciones()
@@ -77,7 +77,7 @@ if (str(ecuacion).strip() != "" or y[0]!=None):
     JSON.definirColumna("Cuadratica", cuadratica[1])
     JSON.definirColumna("Cubica", cubica[1])
     JSON.definirColumna("Original", calcularY(ecuacion, range(len(list(limite))), list(limite)))
-
+    JSON.calcularErrores()
     print(JSON.getTabla())
 else:
     print("No es posible calcular")
