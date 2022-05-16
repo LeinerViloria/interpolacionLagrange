@@ -1,5 +1,5 @@
 import asyncio
-from JSON.json import json
+from Tabla.tabla import tabla
 from Lagrange.InterpolacionCuadratica import InterpolacionCuadratica
 from Lagrange.InterpolacionCubica import InterpolacionCubica
 from Lagrange.InterpolacionLineal import InterpolacionLineal
@@ -14,7 +14,7 @@ lineal = None
 cuadratica = None
 cubica = None
 
-JSON = json()
+JSON = tabla()
 function = Funciones()
 ecuacion = ""
 

@@ -1,6 +1,6 @@
 import json
 
-class json():
+class tabla():
     def __init__(self):
         self._tabla = []
 
