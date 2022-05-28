@@ -9,7 +9,10 @@ from Grafica.Grafica import Grafica
 x = [1,4,6,9]
 y = []
 #y = [0,1.3862,1.7917,2.1]
-limite = range(0,7)#[-5,5]
+
+desde=0
+hasta=6
+limite = range(desde,hasta+1)
 
 lineal = [None, None]
 cuadratica = [None, None]
@@ -17,7 +20,7 @@ cubica = [None, None]
 
 JSON = tabla()
 function = Funciones()
-ecuacion = "x+1"
+ecuacion = "ln(x)"
 
 def calcularY(ecuacion, rango, valoresX):
     aux = []
@@ -77,7 +80,7 @@ async def inter3():
 if (str(ecuacion).strip() != "" or y[0]!=None):
     lineal = asyncio.run(inter1())
     cuadratica = asyncio.run(inter2())
-    cubica = asyncio.run(inter3())
+    #cubica = asyncio.run(inter3())
 
     print("Interpolacion lineal: {}".format(lineal[0]))
     print("Interpolacion cuadratica: {}".format(cuadratica[0]))

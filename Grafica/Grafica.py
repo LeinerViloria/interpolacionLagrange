@@ -1,5 +1,4 @@
 import matplotlib.pyplot as plt
-import numpy as np
 
 class Grafica():
     def __init__(self, titulo, ejeX, ejeY):
@@ -15,13 +14,13 @@ class Grafica():
     def mostrarData(self):
         print(self.data)
 
-    def _definirData1(self, valores=np.linspace(2.0, 4.0, num=10)):
+    def _definirData1(self, valores):
         self.data1=valores
 
-    def _definirData2(self, valores=np.linspace(1.0, 6.0, num=10)):
+    def _definirData2(self, valores):
         self.data2=valores
 
-    def _definirData3(self, valores=np.linspace(5.0, 7.0, num=10)):
+    def _definirData3(self, valores):
         self.data3=valores
 
     def recibirDatos(self, datos, i1, i2, i3):

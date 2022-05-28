@@ -1,4 +1,3 @@
-import json
 
 class tabla():
     def __init__(self):
