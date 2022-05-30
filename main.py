@@ -6,13 +6,18 @@ from Lagrange.InterpolacionLineal import InterpolacionLineal
 from MathFunctions.Funciones import Funciones
 from Grafica.Grafica import Grafica
 
-x = [1,4,6,9]
+x = [-1,-0.5,0,0.5]
 y = []
 #y = [0,1.3862,1.7917,2.1]
 
-desde=0
-hasta=6
+desde=-1
+hasta=8
 limite = range(desde,hasta+1)
+
+#Para saber qué correr
+ejecutarLineal = True
+ejecutarCuadratico = True
+ejecutarCubico = True
 
 lineal = [None, None]
 cuadratica = [None, None]
@@ -20,19 +25,26 @@ cubica = [None, None]
 
 JSON = tabla()
 function = Funciones()
-ecuacion = "ln(x)"
+
+ecuacion = "1/(1+25*x**2)"
 
 def calcularY(ecuacion, rango, valoresX):
     aux = []
     if "ln" in ecuacion:
         for i in rango:
-            aux.append(function.ln(valoresX[i]))
+            resultado = function.ln(valoresX[i])
+            if (resultado.is_rational):
+                resultado = resultado.p / resultado.q
+            aux.append(resultado)
     else:
         ecuacion = "" if (ecuacion.strip() == "") else function.parsear(ecuacion)
         if (ecuacion != ""):
             for i in rango:
                 if(i<len(valoresX)):
-                    aux.append(function.funcionIngresada(ecuacion, valoresX[i]))
+                    resultado = function.funcionIngresada(ecuacion, valoresX[i])
+                    if(resultado.is_rational):
+                        resultado = resultado.p/resultado.q
+                    aux.append(resultado)
         else:
             aux.append(None)
     return aux
@@ -78,9 +90,12 @@ async def inter3():
         return [None, None]
 
 if (str(ecuacion).strip() != "" or y[0]!=None):
-    lineal = asyncio.run(inter1())
-    cuadratica = asyncio.run(inter2())
-    #cubica = asyncio.run(inter3())
+    if(ejecutarLineal):
+        lineal = asyncio.run(inter1())
+    if(ejecutarCuadratico):
+        cuadratica = asyncio.run(inter2())
+    if(ejecutarCubico):
+        cubica = asyncio.run(inter3())
 
     print("Interpolacion lineal: {}".format(lineal[0]))
     print("Interpolacion cuadratica: {}".format(cuadratica[0]))
@@ -93,8 +108,10 @@ if (str(ecuacion).strip() != "" or y[0]!=None):
     JSON.definirColumna("Original", calcularY(ecuacion, range(len(list(limite))), list(limite)))
     JSON.calcularErrores()
 
+    print(JSON.getTabla())
+
     grafica = Grafica("Interpolacion", "Eje x", "Eje y")
-    grafica.recibirDatos(JSON.getTabla(),1,2,3)
+    grafica.recibirDatos(JSON.getTabla(),1,2,3,4)
     asyncio.run(grafica.crearGrafico())
 
     if(str(ecuacion).strip() != ""):
