@@ -108,8 +108,6 @@ if (str(ecuacion).strip() != "" or y[0]!=None):
     JSON.definirColumna("Original", calcularY(ecuacion, range(len(list(limite))), list(limite)))
     JSON.calcularErrores()
 
-    print(JSON.getTabla())
-
     grafica = Grafica("Interpolacion", "Eje x", "Eje y")
     grafica.recibirDatos(JSON.getTabla(),1,2,3,4)
     asyncio.run(grafica.crearGrafico())
