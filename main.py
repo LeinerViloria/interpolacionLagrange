@@ -8,7 +8,7 @@ from MathFunctions.Funciones import Funciones
 x = [1,4,6,8]
 y = []
 #y = [1,3,0,-8]
-limite = range(-5,6)#[-5,5]
+limite = range(1,7)#[-5,5]
 
 lineal = [None, None]
 cuadratica = [None, None]
@@ -16,7 +16,7 @@ cubica = [None, None]
 
 JSON = tabla()
 function = Funciones()
-ecuacion = "ln(x)"
+ecuacion = "Ln(x)"
 
 def calcularY(ecuacion, rango, valoresX):
     aux = []
