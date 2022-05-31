@@ -75,6 +75,14 @@ En la linea #17 y #18, están las variables para saber el rango en el que se eva
 
 Las otras dos lineas a las que debes poner cuidado son la linea #13 y #27, ya que si te dan una ecuacion debes dejar la Y vacia, tal como está, y debes meter una ecuación, puede ser cualquiera, donde la variable independiente es la X, ten cuidado con los parentesis, serán importantes; por otro lado, si te dan los valores de Y, debes meterlos en la linea #13, así como está en el ejemplo de la linea #14, y dejar la ecuacion=""
 
+Debes tener en cuenta las operacione en python
+
+![operador1](https://user-images.githubusercontent.com/88936718/171237136-f7ead323-39ad-4b13-b63e-f9fb6d6d320d.png)
+
+![operador1](https://user-images.githubusercontent.com/88936718/171239441-2e91bf92-056b-495a-a7c6-731ddcd657bc.png)
+
+![operador1](https://user-images.githubusercontent.com/88936718/171240897-fa9dc1f5-1169-4346-8675-97f5018a9c0f.png)
+
 Si quieres ejecutar una interpolacion, dejas el valor de True, sino, lo cambias a False. ¡¡Con la primera letra en mayúscula!! True o False.
 
 ![file](https://user-images.githubusercontent.com/88936718/171214615-80249eea-f54a-4d37-bc9c-4e6460d0ffb4.png)
