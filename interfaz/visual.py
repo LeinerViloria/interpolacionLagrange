@@ -39,10 +39,10 @@ class visual ():
             col1 = datos[1]["values"][i] if(datos[1]["values"]!=None) else None
             col2 = datos[2]["values"][i] if(datos[2]["values"]!=None) else None
             col3 = datos[3]["values"][i] if(datos[3]["values"]!=None) else None
-            col4 = datos[4]["values"][i] if(datos[4]["values"]!=None) else None
-            col5 = datos[5]["values"][i] if(i<len(datos[5]["values"]) and datos[5]["values"]!=None) else None
-            col6 = datos[6]["values"][i] if(i<len(datos[6]["values"]) and datos[6]["values"]!=None) else None
-            col7 = datos[7]["values"][i] if(i<len(datos[7]["values"]) and datos[7]["values"]!=None) else None
+            col4 = datos[4]["values"][i] if(datos[4]["values"]!=[None]) else None
+            col5 = datos[5]["values"][i] if(i<len(datos[5]["values"]) and datos[5]["values"]!=[None]) else None
+            col6 = datos[6]["values"][i] if(i<len(datos[6]["values"]) and datos[6]["values"]!=[None]) else None
+            col7 = datos[7]["values"][i] if(i<len(datos[7]["values"]) and datos[7]["values"]!=[None]) else None
             self.tabla.insert("", END, text=valoresX[i], values=(col1,col2,col3, col4, col5, col6,col7))
 
     def pintar(self):
