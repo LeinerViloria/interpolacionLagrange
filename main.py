@@ -7,12 +7,15 @@ from MathFunctions.Funciones import Funciones
 from Grafica.Grafica import Grafica
 from interfaz.visual import visual
 
+#Variable para los valores de X
 x = [-1,-0.5,0,0.5]
+#Variable para los valores de y, en caso de no haber ecuacion
 y = []
 #y = [0,1.3862,1.7917,2.1]
 
+#Desde dónde hasta dónde quiere evaluar las ecuaciones
 desde=-1
-hasta=8
+hasta=3
 limite = range(desde,hasta+1)
 
 #Para saber qué correr
@@ -20,14 +23,15 @@ ejecutarLineal = True
 ejecutarCuadratico = True
 ejecutarCubico = True
 
+#En caso de no tener valores en Y, puede escribir su ecuacion aqui
+ecuacion = "1/(1+25*x**2)"
+
 lineal = [None, None]
 cuadratica = [None, None]
 cubica = [None, None]
 
 JSON = tabla()
 function = Funciones()
-
-ecuacion = "1/(1+25*x**2)"
 
 def calcularY(ecuacion, rango, valoresX):
     aux = []
@@ -90,7 +94,7 @@ async def inter3():
     else:
         return [None, None]
 
-if (str(ecuacion).strip() != "" or y[0]!=None):
+if ((str(ecuacion).strip() != "" or y[0]!=None) and (ejecutarLineal==True or ejecutarCuadratico==True or ejecutarCubico==True)):
     if(ejecutarLineal):
         lineal = asyncio.run(inter1())
     if(ejecutarCuadratico):
@@ -126,4 +130,4 @@ if (str(ecuacion).strip() != "" or y[0]!=None):
         print("No hay una ecuacion para calcular los errores")
 
 else:
-    print("No es posible calcular")
+    print("No es posible calcular, por favor ingrese valores y asegurese de elegir, al menos, una interpolacion")

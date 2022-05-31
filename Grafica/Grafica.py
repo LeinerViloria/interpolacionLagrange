@@ -36,17 +36,29 @@ class Grafica():
         self.data4=valores
 
     def recibirDatos(self, datos, i1, i2, i3, iOriginal=None):
-        self.n = len(datos[0]['values'])
-        self.X = datos[0]['values'];
+        self.n = len(datos)
+        self.X = datos[0]['values']
         if(i1<self.n):
-            if (datos[i1]['values'] != [None]):
-                self._definirData1(datos[i1]['name'],datos[i1]['values'])
+            if(type(datos[i1]['values'])==list):
+                if (len(datos[i1]['values'])>0):
+                    self._definirData1(datos[i1]['name'],datos[i1]['values'])
+            else:
+                if (datos[i1]['values'] != [None]):
+                    self._definirData1(datos[i1]['name'], datos[i1]['values'])
         if(i2<self.n):
-            if (datos[i2]['values'] != [None]):
-                self._definirData2(datos[i2]['name'],datos[i2]['values'])
+            if (type(datos[i2]['values']) == list):
+                if (len(datos[i2]['values']) > 0):
+                    self._definirData2(datos[i2]['name'], datos[i2]['values'])
+            else:
+                if (datos[i2]['values'] != [None]):
+                    self._definirData2(datos[i2]['name'], datos[i2]['values'])
         if(i3<self.n):
-            if (datos[i3]['values'] != [None]):
-                self._definirData3(datos[i3]['name'],datos[i3]['values'])
+            if (type(datos[i3]['values']) == list):
+                if (len(datos[i3]['values']) > 0):
+                    self._definirData3(datos[i3]['name'], datos[i3]['values'])
+            else:
+                if (datos[i3]['values'] != [None]):
+                    self._definirData3(datos[i3]['name'], datos[i3]['values'])
         if(iOriginal!=None):
             if (datos[iOriginal]['values'] != [None]):
                 self._definirData4(datos[iOriginal]['name'],datos[iOriginal]['values'])
@@ -55,14 +67,31 @@ class Grafica():
         plt.xlabel(self.ejeX)
         plt.ylabel(self.ejeY)
         plt.title(self.titulo)
+
         if(self.data1!=None):
-            plt.plot(self.X,self.data1, label=self.tituloData1)
+            if (type(self.data1) == list):
+                if (len(self.data1) > 0):
+                    plt.plot(self.X,self.data1, label=self.tituloData1)
+            else:
+                plt.plot(self.X,self.data1, label=self.tituloData1)
         if(self.data2!=None):
-            plt.plot(self.X,self.data2, label=self.tituloData2)
+            if(type(self.data2)==list):
+                if(len(self.data2)>0):
+                    plt.plot(self.X, self.data2, label=self.tituloData2)
+            else:
+                plt.plot(self.X,self.data2, label=self.tituloData2)
         if(self.data3!=None):
-            plt.plot(self.X,self.data3, label=self.tituloData3)
+            if (type(self.data3) == list):
+                if (len(self.data3) > 0):
+                    plt.plot(self.X,self.data3, label=self.tituloData3)
+            else:
+                plt.plot(self.X,self.data3, label=self.tituloData3)
         if (self.data4 != None):
-            plt.plot(self.X, self.data4, label=self.tituloData4)
+            if (type(self.data4) == list):
+                if (len(self.data4) > 0):
+                    plt.plot(self.X, self.data4, label=self.tituloData4)
+            else:
+                plt.plot(self.X, self.data4, label=self.tituloData4)
         if(self.tituloData1!=None or self.tituloData2!=None or self.tituloData3!=None or self.tituloData4!=None):
             plt.legend(bbox_to_anchor=(1.05, 1.0), loc='upper left')
             plt.tight_layout()
