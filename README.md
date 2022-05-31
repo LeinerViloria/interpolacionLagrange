@@ -53,29 +53,31 @@ File/Settings
 
 Project:Lagrange/Python Interpreter/+
 
+Verificaa tener como interprete de python el ejecutable que está en \AppData\Local\Programs\Python\Python310\python.exe
+
 ![file](https://user-images.githubusercontent.com/88936718/170803380-ff743005-6a83-4181-a007-e21b775440d2.png)
 
 Escribes el nombre de la libreria y le das instalar
 
 ![file](https://user-images.githubusercontent.com/88936718/170803412-02c23aa3-90ed-4655-842b-50f262a31c86.png)
 
-Estando con todo listo, abres el archivo main.py y encontrarás que, las primeras 24 lineas, contienen lo siguiente:
+Estando con todo listo, abres el archivo main.py y encontrarás que, las primeras 27 lineas, contienen lo siguiente:
 
-![file](https://user-images.githubusercontent.com/88936718/171042963-05cdb019-ad6f-4af9-992f-42cad4c400c0.png)
+![file](https://user-images.githubusercontent.com/88936718/171213917-19e84f3b-cb0e-4763-8e2d-1dc13d46ac50.png)
 
 Te interesan las siguientes lineas:
 
-![file](https://user-images.githubusercontent.com/88936718/171043124-5ae94fe8-194a-431f-b18b-dde75c339814.png)
+![file](https://user-images.githubusercontent.com/88936718/171214241-396b7f96-c298-47c3-9bf9-dcaaee8de45c.png)
 
-En la linea #9, te encontrarás la variable X, ahí irán los valores de X.
+En la linea #10, te encontrarás la variable X, ahí irán los valores de X.
 
-En la linea #13 y #14, están las variables para saber el rango en el que se evaluará el resultado final
+En la linea #17 y #18, están las variables para saber el rango en el que se evaluará el resultado final
 
-Las otras dos lineas a las que debes poner cuidado son la linea #10 y #29, ya que si te dan una ecuacion debes dejar la Y vacia, tal como está, y debes meter una ecuación, puede ser cualquiera, donde la variable independiente es la X, ten cuidado con los parentesis, serán importantes; por otro lado, si te dan los valores de Y, debes meterlos en la linea #10, así como está en el ejemplo de la linea #11, y dejar la ecuacion=""
+Las otras dos lineas a las que debes poner cuidado son la linea #13 y #27, ya que si te dan una ecuacion debes dejar la Y vacia, tal como está, y debes meter una ecuación, puede ser cualquiera, donde la variable independiente es la X, ten cuidado con los parentesis, serán importantes; por otro lado, si te dan los valores de Y, debes meterlos en la linea #13, así como está en el ejemplo de la linea #14, y dejar la ecuacion=""
 
 Si quieres ejecutar una interpolacion, dejas el valor de True, sino, lo cambias a False. ¡¡Con la primera letra en mayúscula!! True o False.
 
-![fi](https://user-images.githubusercontent.com/88936718/171043395-a457fcf5-c7cd-495e-b5c0-708d80aa5b23.png)
+![file](https://user-images.githubusercontent.com/88936718/171214615-80249eea-f54a-4d37-bc9c-4e6460d0ffb4.png)
 
 EJECUCION
 
@@ -83,11 +85,11 @@ EJECUCION
 
 ![file](https://user-images.githubusercontent.com/88936718/170803816-bea9c20d-2341-4e1a-a74e-dbbc34c8455f.png)
 
-Te encontrarás en consola esto
+Te encontrarás esto
 
-![file](https://user-images.githubusercontent.com/88936718/170803879-9c61c17d-37c9-4917-b349-692707c938cd.png)
+![file](https://user-images.githubusercontent.com/88936718/171214796-cf3a34bf-7083-41e4-b01f-cf3dbbedd5ed.png)
 
-Y te saldran las graficas (La grafica del error saldrá si tiene una ecuacion original dada en la linea #29)
+Y te saldran las graficas (La grafica del error saldrá si tiene una ecuacion original dada en la linea #27)
 
 ![file](https://user-images.githubusercontent.com/88936718/171043664-7a6e4f05-664c-41e1-9824-38a97c09a767.png)
 
@@ -103,5 +105,6 @@ Click derecho a main.py y le das en correr en terminal
 
 ![file](https://user-images.githubusercontent.com/88936718/170804036-0c04e87d-5a88-440d-a4ad-0e43f1771b01.png)
 
-![file](https://user-images.githubusercontent.com/88936718/171044254-dc3054e9-a00a-442b-8dd6-64be5194b2c4.png)
+![file](https://user-images.githubusercontent.com/88936718/171215097-c1deeb91-926d-4103-ba48-233491b1174b.png)
 
+Para ver las graficas, cierra la ventana que se muestre, para poder pasar a la siguiente
