@@ -1,34 +1,52 @@
 from tkinter import*
 from tkinter import ttk
 
-raiz = Tk() #raiz seria la pagina principal y le asignamos la libreria importada anteriormente
+class visual ():
+    def __init__(self, Titulo,mensaje1,mensaje2,mensaje3) :
+      self.raiz = Tk() 
+      self.raiz.title(Titulo)
+      self.raiz.geometry("1200x600")
+      self.lbl1 = ttk.Label(self.raiz, text=mensaje1)
+      self.lbl2 = ttk.Label(self.raiz, text=mensaje2)
+      self.lbl3 = ttk.Label(self.raiz, text=mensaje3)
+      self.tabla = ttk.Treeview(self.raiz, columns=("col1", "col2", "col3", "col4", "col5", "col6", "col7"))
 
-raiz.title("Interpolación de lagrange")
+    def definircolumnas(self):
+        self.tabla.column("#0", width=120)
+        self.tabla.column("col1", width=120, anchor=CENTER)
+        self.tabla.column("col2", width=120, anchor=CENTER)
+        self.tabla.column("col3", width=120, anchor=CENTER)
+        self.tabla.column("col4", width=120, anchor=CENTER)
+        self.tabla.column("col5", width=120, anchor=CENTER)
+        self.tabla.column("col6", width=120, anchor=CENTER)
+        self.tabla.column("col7", width=120, anchor=CENTER)
 
-raiz.geometry("1200x600")
+    def cabeceras(self,datos):
+        self.tabla.heading("#0", text="X", anchor=CENTER)
+        indice = len(datos)
+        for i in range(indice):
+            nombrecolumna = "col"+str(i)
+            if(nombrecolumna!="col0"):   
+                self.tabla.heading(nombrecolumna, text=datos[i]["name"], anchor=CENTER)
+            
+    
+    def insertar (self, datos):
+        length = len(datos)
+        valoresX = datos[0]["values"]
+        filasLength = len(valoresX)
 
-tabla = ttk.Treeview(raiz, columns=("col1", "col2", "col3", "col4", "col5", "col6", "col7"))
+        for i in range(filasLength):
+            self.tabla.insert("", END, text=valoresX[i], values=(datos[1]["values"][i],datos[2]["values"][i],
+                                                                 datos[3]["values"][i], datos[4]["values"][i],
+                                                                 datos[5]["values"][i], datos[6]["values"][i],
+                                                                 datos[7]["values"][i]))
 
-tabla.column("#0", width=80)
-tabla.column("col1", width=80, anchor=CENTER)
-tabla.column("col2", width=80, anchor=CENTER)
-tabla.column("col3", width=80, anchor=CENTER)
-tabla.column("col4", width=80, anchor=CENTER)
-tabla.column("col5", width=80, anchor=CENTER)
-tabla.column("col6", width=80, anchor=CENTER)
-tabla.column("col7", width=80, anchor=CENTER)
-
-tabla.heading("#0", text="X", anchor=CENTER)
-tabla.heading("col1", text="Lag.Lineal", anchor=CENTER)
-tabla.heading("col2", text="Lag.Cuadratica", anchor=CENTER)
-tabla.heading("col3", text="Lag.Cubica", anchor=CENTER)
-tabla.heading("col4", text="F. Original", anchor=CENTER)
-tabla.heading("col5", text="Error Lineal", anchor=CENTER)
-tabla.heading("col6", text="Error Cuadratico", anchor=CENTER)
-tabla.heading("col7", text="Error Cubico", anchor=CENTER)
-
-tabla.insert("", END, text="Algo", values=("1", "2", "3", "4","5","6"))
-tabla.pack()
+    def pintar(self):
+        self.tabla.pack()
+        self.lbl1.pack()
+        self.lbl2.pack()
+        self.lbl3.pack()
+        self.raiz.mainloop() #una ventana debe permanecer en un bucle infinito
 
 
-raiz.mainloop() #una ventana debe permanecer en un bucle infinito
+

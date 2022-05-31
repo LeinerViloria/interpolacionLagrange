@@ -5,6 +5,7 @@ from Lagrange.InterpolacionCubica import InterpolacionCubica
 from Lagrange.InterpolacionLineal import InterpolacionLineal
 from MathFunctions.Funciones import Funciones
 from Grafica.Grafica import Grafica
+from interfaz.visual import visual
 
 x = [-1,-0.5,0,0.5]
 y = []
@@ -97,9 +98,6 @@ if (str(ecuacion).strip() != "" or y[0]!=None):
     if(ejecutarCubico):
         cubica = asyncio.run(inter3())
 
-    print("Interpolacion lineal: {}".format(lineal[0]))
-    print("Interpolacion cuadratica: {}".format(cuadratica[0]))
-    print("Interpolacion cubica: {}".format(cubica[0]))
 
     JSON.definirColumna("X", list(limite))
     JSON.definirColumna("Lineal", lineal[1])
@@ -107,6 +105,14 @@ if (str(ecuacion).strip() != "" or y[0]!=None):
     JSON.definirColumna("Cubica", cubica[1])
     JSON.definirColumna("Original", calcularY(ecuacion, range(len(list(limite))), list(limite)))
     JSON.calcularErrores()
+
+    tablavisual = visual("Interpolación de lagrange", "Interpolacion lineal: {}".format(lineal[0]),
+                         "Interpolacion cuadratica: {}".format(cuadratica[0]),
+                         "Interpolacion cubica: {}".format(cubica[0]))
+    tablavisual.definircolumnas()
+    tablavisual.cabeceras(JSON.getTabla())
+    tablavisual.insertar(JSON.getTabla())
+    tablavisual.pintar()
 
     grafica = Grafica("Interpolacion", "Eje x", "Eje y")
     grafica.recibirDatos(JSON.getTabla(),1,2,3,4)
@@ -118,7 +124,6 @@ if (str(ecuacion).strip() != "" or y[0]!=None):
         asyncio.run(grafica2.crearGrafico())
     else:
         print("No hay una ecuacion para calcular los errores")
-
 
 else:
     print("No es posible calcular")
